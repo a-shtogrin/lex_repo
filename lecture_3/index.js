@@ -125,6 +125,7 @@ console.log('--------------------------');
 // ----------Практика------------
 
 let films = ["Челюсти", "Крик", "Один дома", "Подвал"]
+console.log(films);
 console.log(films[0]);
 console.log(films);
 films.unshift("Конец")
