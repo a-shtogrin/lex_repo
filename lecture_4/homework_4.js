@@ -54,6 +54,7 @@ while (year >= 1800 && year <= 2022) {
 }
 console.log(`${countYear} высокосных года, найдены за ${iteration} итераций`);
 
+
 //-----Задачи из .doc
 /*Проанализировав временной промежуток начиная с 1800 и до 2022 года найти
 и вывести в консоль:
@@ -82,3 +83,22 @@ if (test !== true) {
 } else {
   console.log("Не верно!");
 }
+
+console.log("3.");
+
+let string = "abcd";
+if (string[1] === "a") {
+    console.log("Да");
+} else {
+    console.log("нет");
+}
+
+let string2 = "32345";
+if (string2[0] == 1 || string2[0] == 2 || string2[0]==3) {
+    console.log("Да");
+} else {
+    console.log("нет");
+}
+
+let string3 = "323";
+console.log(+string3[0] + (+string3[1]) + (+string3[2]))
