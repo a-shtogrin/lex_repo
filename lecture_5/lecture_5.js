@@ -1,19 +1,18 @@
-
 // -------------- Функции--------------------------
 
 //Определение функции
 function showMessage(message) {
-    console.log(message);
+  console.log(message);
 }
 
 //вывод функции
-showMessage("jasdhfsj")
-showMessage("фыфым")
-showMessage("уууууj")
+showMessage("jasdhfsj");
+showMessage("фыфым");
+showMessage("уууууj");
 
-function sum(a, b=2) {
-    return(a + b);
-}
+// function sum(a, b=2) {
+//     return(a + b);
+// }
 // b=2 - параметр по умолчанию, используется еcли мы не определили параметр b, всегда пишется в конце.
 /* const result = sum (1, 5)
 console.log(result);
@@ -52,23 +51,112 @@ console.log(name);
  sum(2,2) */
 
 function sayHello(name = "Гость") {
-    return console.log(`Hello - ${name}`)
+  return console.log(`Hello - ${name}`);
 }
-sayHello("hfhfhf")
+sayHello("hfhfhf");
 
-function exponentiation(number, degree = 1 ) {
-    return console.log( number ** degree);
+function exponentiation(number, degree = 1) {
+  return number ** degree;
 }
 
-exponentiation(2, 3)
+console.log(exponentiation(2, 3));
 
-const arr = [1, 2, 4, 5, 6]
-function getAverage(arr) {
-    sum = 0;
-    for (let i=0; i < arr.length; i+=1) {
-        sum = sum + arr[i]
+const arr = [3, 7, 3, 7, 4];
+function getAverage(array) {
+  sum = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    sum = sum + array[i];
+  }
+  return sum / array.length;
+}
+
+console.log(getAverage(arr));
+
+const sayHello2 = function (name) {
+  // анонимная функция
+  console.log(`Hello ${name}`);
+};
+
+const funcExample = function (callback) {
+  for (let i = 0; i < 1000000000; i += 1) {}
+  callback("Fran");
+};
+sayHello2("July");
+funcExample(sayHello2);
+
+// Отличия функций декларейшон и экспланейшон
+
+//декларейшон (можно запустить функция до определения)
+summa(1, 2);
+
+function summa(a, b) {
+  console.log(a + b);
+}
+
+//экспланейшон (НЕЛЬЗЯ запустить функцию до определения)
+
+// multiply (1, 2);
+
+const multiply = function (a, b) {
+  console.log(a * b);
+};
+
+multiply(3, 2);
+
+const getSurname = (name) => `Surname ${name}`;
+
+console.log(getSurname("KKOl"));
+
+const getSecond = (secondName) => {
+  return `Second name - ${secondName}`;
+};
+
+console.log(getSecond("Ivanovich"));
+
+const quatro = (a) => a ** 2;
+console.log(quatro(3));
+
+// Практика
+
+const typeString = (string, n) => {
+    for(let i=0; i < n; i+=1){
+       console.log(string);
     }
-    return console.log(sum/arr.length);
+    return
 }
 
-getAverage(arr)
+typeString("Ку-Ку", 5)
+
+const vowelArr = ["e", "y", "u", "o", "a", "i"]
+
+const getVowel = (letter) => {
+    for (let i=0; i < vowelArr.length; i +=1) {
+        if(vowelArr[i]===letter) {
+            return console.log(true);
+        } 
+    }
+        return console.log(false);
+    }
+
+getVowel("j")
+
+
+/* Напишите стрелочную функцию, которая будет возвращать true если строка является палиндромом и false в противном случае*. */
+
+
+const palindrome = (word) => {
+    const j = word.length-1;
+    let count = 0;
+    for(let i=0; i < word.length; i +=1){
+        if(word[i]===word[j-i]){
+            count +=1
+        }
+    }
+    if (count == word.length) {
+        return console.log(true);
+    } else {
+        return console.log(false);
+    }
+}
+
+palindrome("daad")
