@@ -138,7 +138,7 @@ const getVowel = (letter) => {
         return console.log(false);
     }
 
-getVowel("j")
+getVowel("i")
 
 
 /* Напишите стрелочную функцию, которая будет возвращать true если строка является палиндромом и false в противном случае*. */
@@ -159,4 +159,4 @@ const palindrome = (word) => {
     }
 }
 
-palindrome("daad")
+palindrome("da02ad")
