@@ -119,44 +119,42 @@ console.log(quatro(3));
 // Практика
 
 const typeString = (string, n) => {
-    for(let i=0; i < n; i+=1){
-       console.log(string);
-    }
-    return
-}
+  for (let i = 0; i < n; i += 1) {
+    console.log(string);
+  }
+  return;
+};
 
-typeString("Ку-Ку", 5)
+typeString("Ку-Ку", 5);
 
-const vowelArr = ["e", "y", "u", "o", "a", "i"]
+const vowelArr = ["e", "y", "u", "o", "a", "i"];
 
 const getVowel = (letter) => {
-    for (let i=0; i < vowelArr.length; i +=1) {
-        if(vowelArr[i]===letter) {
-            return console.log(true);
-        } 
+  for (let i = 0; i < vowelArr.length; i += 1) {
+    if (vowelArr[i] === letter) {
+      return console.log(true);
     }
-        return console.log(false);
-    }
+  }
+  return console.log(false);
+};
 
-getVowel("i")
-
+getVowel("i");
 
 /* Напишите стрелочную функцию, которая будет возвращать true если строка является палиндромом и false в противном случае*. */
 
-
 const palindrome = (word) => {
-    const j = word.length-1;
-    let count = 0;
-    for(let i=0; i < word.length; i +=1){
-        if(word[i]===word[j-i]){
-            count +=1
-        }
+  const j = word.length - 1;
+  let count = 0;
+  for (let i = 0; i < word.length; i += 1) {
+    if (word[i] === word[j - i]) {
+      count += 1;
     }
-    if (count == word.length) {
-        return console.log(true);
-    } else {
-        return console.log(false);
-    }
-}
+  }
+  if (count == word.length) {
+    return console.log(true);
+  } else {
+    return console.log(false);
+  }
+};
 
-palindrome("da02ad")
+palindrome("da02ad");
