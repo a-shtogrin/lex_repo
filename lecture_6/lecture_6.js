@@ -102,13 +102,16 @@ console.log(isLetterUpper("heLLo", 5));
 /* Реализовать функцию которая заменяет в строке str, все вхождения подстроки find, на подстроку replace.
  */
 
+/* 
 const replaceStr = (str, find, replace) => {
     let newStr = "";
-    if (str.includs(find) === true) {
-        for (  ) {
-            ;
-            
-        }
-    };
-    return "Нет подстроки в find  в строке string"
+    for (let i = 0; i < str.length;) {
+        newStr += str.slice(i, str.indexOf(find, i)+ find.length) + replace
+        i = str.indexOf(find, i) + find.length; //4
+        }       
+return newStr;
 }
+
+console.log(replaceStr("112233442266", "22", "qqq")); */
+
+console.log( Math.floor( Math.random()*4))
