@@ -8,7 +8,7 @@ const stringToArray = (string) => {
   return array;
 };
 console.log("1)");
-console.log( stringToArray("Привет! Я робот."));
+console.log(stringToArray("Привет! Я робот."));
 
 /* 2) Напишите функцию deleteСharacters(str, length), которая возвращает подстроку, состоящую из указанного количества символов. */
 
@@ -16,7 +16,7 @@ const deleteСharacters = (str, length) => {
   return str.substr(0, length);
 };
 
-console.log("2)"+ deleteСharacters("012345", 3));
+console.log("2)" + deleteСharacters("012345", 3));
 
 /* 3) Напишите функцию insertDash(str), которая принимает строку str в качестве аргумента и вставляет тире (-) между словами. При этом все символы строки необходимо перевести в верхний регистр. */
 
@@ -31,7 +31,7 @@ const insertDash = (str) => {
   }
   return newStr;
 };
-console.log("3)"+insertDash("Привет"));
+console.log("3)" + insertDash("Привет"));
 
 /* 4) Напишите функцию, которая принимает строку в качестве аргумента и преобразует регистр первого символа строки из нижнего регистра в верхний. */
 
@@ -61,7 +61,7 @@ const capitalize = (str) => {
   }
   return newStr;
 };
-console.log("5)"+ capitalize("    привет рома ку кушкин  "));
+console.log("5)" + capitalize("    привет рома ку кушкин  "));
 
 /* 6) Напишите функцию changeRegister(str), которая принимает в качестве аргумента строку и и заменяет регистр каждого символа на противоположный. Например, если вводится «КаЖдЫй ОхОтНиК», то на выходе должно быть «кАжДыЙ оХоТнИк».
  */
@@ -77,7 +77,7 @@ const changeRegister = (str) => {
   }
   return newStr;
 };
-console.log("6)"+ changeRegister("КаЖдЫй ОхОтНиК"));
+console.log("6)" + changeRegister("КаЖдЫй ОхОтНиК"));
 
 /* 7) Напишите функцию removeChar(str), которая возвращает строку, очищенную от всех не буквенно-цифровых символов.
  */
@@ -100,8 +100,48 @@ const removeChar = (str) => {
   }
   return newStr;
 };
-console.log("7)"+ removeChar("asdfs sadfHHGHJFGHGCasdf /@#$$%%^^&&()  1244567"));
-
+console.log(
+  "7)" + removeChar("asdfs sadfHHGHJFGHGCasdf /@#$$%%^^&&()  1244567")
+);
 
 /* 8) Напишите функцию zeros(num, len), которая дополняет нулями до указаной длины числовое значение с дополнительным знаком «+» или «-» в зависимости от передаваемого аргумента.
  */
+
+/* 9) Напишите функцию comparison(str1, str2), которая сравнивает строки без учёта регистра символов.
+ */
+
+const comparison = (str1, str2) => {
+  let newStr1 = str1.toLocaleLowerCase();
+  let newStr2 = str2.toLocaleLowerCase();
+  console.log(newStr1);
+  console.log(newStr2);
+  return newStr1 === newStr2;
+};
+
+console.log(comparison("PrIvET", "privet"));
+
+/* 10) Напишите функцию insensitiveSearch(str1, str2), которая осуществляет поиск подстроки str2 в строке str1 без учёта регистра символов. */
+
+const insensitiveSearch = (str1, str2) => {
+  return str1.toLocaleLowerCase().includes(str2.toLocaleLowerCase());
+};
+console.log(insensitiveSearch("PrIvEt", "iV"));
+
+/* 11) Напишите функцию initCap(str), которая преобразует стиль написания составных слов строки в CamelCase, при котором несколько слов пишутся слитно без пробелов, при этом каждое слово внутри строки пишется с заглавной буквы. */
+
+const initCap = (str) => {
+  let newStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === " ") {
+      continue;
+    } else {
+      if (str[i - 1] === " ") {
+        newStr += str[i].toUpperCase();
+      } else {
+        newStr += str[i].toLowerCase();
+      }
+    }
+  }
+  return newStr[0].toLowerCase() + newStr.slice(1, newStr.length);
+};
+console.log(initCap(" PRiVet LeX  how ARE you  "));
