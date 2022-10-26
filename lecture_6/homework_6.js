@@ -145,3 +145,29 @@ const initCap = (str) => {
   return newStr[0].toLowerCase() + newStr.slice(1, newStr.length);
 };
 console.log(initCap(" PRiVet LeX  how ARE you  "));
+
+/* 12) Напишите функцию initSnake(str), которая преобразует стиль написания составных слов строки из CamelCase в snake_case, при котором несколько слов разделяются символом подчеркивания (_), причём каждое слово пишется с маленькой буквы.
+ */
+
+const initSnake = (str) => {
+  let newStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i].toUpperCase()) {
+      newStr += "_" + str[i].toLowerCase();
+    } else {
+        newStr += str[i].toLowerCase();
+      }
+    }
+    return newStr;
+  }
+  
+console.log(initSnake("privetLexHowAreYou"));
+
+// 13) Напишите функцию repeatStr(str, n), которая возвращает строку повторяемую определённое количество раз.
+
+const repeatStr = (str, n) => {
+  for (let i = 1; i <= n; i++) {
+    return str;
+  }
+}
+console.log(repeatStr("Privet!", 5));
