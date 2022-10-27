@@ -166,8 +166,13 @@ console.log(initSnake("privetLexHowAreYou"));
 // 13) Напишите функцию repeatStr(str, n), которая возвращает строку повторяемую определённое количество раз.
 
 const repeatStr = (str, n) => {
-  for (let i = 1; i <= n; i++) {
-    return str;
+  let newStr = "";
+  for (let i = 0; i < n; i++) {
+    newStr += str;
+  } 
+    return newStr;
   }
-}
 console.log(repeatStr("Privet!", 5));
+
+// 14) Напишите функцию path(pathname), которая возвращает имя файла (подстрока после последнего символа "\" ) из полного пути к файлу
+
