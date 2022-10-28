@@ -118,14 +118,14 @@ const comparison = (str1, str2) => {
   return newStr1 === newStr2;
 };
 
-console.log(comparison("PrIvET", "privet"));
+console.log("9)", comparison("PrIvET", "privet"));
 
 /* 10) Напишите функцию insensitiveSearch(str1, str2), которая осуществляет поиск подстроки str2 в строке str1 без учёта регистра символов. */
 
 const insensitiveSearch = (str1, str2) => {
   return str1.toLocaleLowerCase().includes(str2.toLocaleLowerCase());
 };
-console.log(insensitiveSearch("PrIvEt", "iV"));
+console.log("10)", insensitiveSearch("PrIvEt", "iV"));
 
 /* 11) Напишите функцию initCap(str), которая преобразует стиль написания составных слов строки в CamelCase, при котором несколько слов пишутся слитно без пробелов, при этом каждое слово внутри строки пишется с заглавной буквы. */
 
@@ -144,7 +144,7 @@ const initCap = (str) => {
   }
   return newStr[0].toLowerCase() + newStr.slice(1, newStr.length);
 };
-console.log(initCap(" PRiVet LeX  how ARE you  "));
+console.log("11)", initCap(" PRiVet LeX  how ARE you  "));
 
 /* 12) Напишите функцию initSnake(str), которая преобразует стиль написания составных слов строки из CamelCase в snake_case, при котором несколько слов разделяются символом подчеркивания (_), причём каждое слово пишется с маленькой буквы.
  */
@@ -161,7 +161,7 @@ const initSnake = (str) => {
     return newStr;
   }
   
-console.log(initSnake("privetLexHowAreYou"));
+console.log("12)", initSnake("privetLexHowAreYou"));
 
 // 13) Напишите функцию repeatStr(str, n), которая возвращает строку повторяемую определённое количество раз.
 
@@ -172,7 +172,43 @@ const repeatStr = (str, n) => {
   } 
     return newStr;
   }
-console.log(repeatStr("Privet!", 5));
+console.log("13)", repeatStr("Privet!", 5));
 
 // 14) Напишите функцию path(pathname), которая возвращает имя файла (подстрока после последнего символа "\" ) из полного пути к файлу
 
+const path = (pathname) => {
+  for (let i = pathname.length-1; i >= 0; i-=1) {
+    if (pathname[i] === "\\") {
+      return pathname.slice(i+1 , pathname.length);
+    } 
+  }
+  console.log(newPathname);
+}
+console.log("14)", path("D:\\Курсы\\JS\\lex_repo\\lecture_6"));
+
+/* 15)Создайте метод объекта String endsWith(), который сравнивает подстроку str1 с окончанием исходной строки str и определяет заканчивается ли строка символами подстроки.*/
+
+let Strin = {};
+const endsWith = function(str, str1) {
+  return str.includes(str1, str.length - str1.length)
+}
+Strin.ends = endsWith;
+console.log("15)",  Strin.ends("privetLexHowAreYou", "You"));
+
+/* 16) Напишите функцию getSubstr(str, char, pos), которая возвращает часть строки, расположенную после или до указанного символа char в зависимости от параметра pos. */
+
+const getSubstr = (str, char, pos) => {
+  if (str.indexOf(char) > pos) {
+    return str.slice(pos , str.length)
+  } else {
+    return str.slice(0 , pos)
+  }
+}
+console.log("16)", getSubstr("1234567890", "0", 5));
+
+/* 17) Напишите функцию insert(str, substr, pos), которая вставляет подстроку substr в указанную позицию pos строки str. По умолчанию подстрока вставляется в начало строки. */
+
+const insert = (str, substr, pos = 0) => {
+  return (str.slice(0, pos) + substr + str.slice(pos, str.length))
+}
+console.log("17)", insert("1234567890", "abc", 5));
