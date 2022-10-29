@@ -81,28 +81,44 @@ console.log("6)" + changeRegister("КаЖдЫй ОхОтНиК"));
 
 /* 7) Напишите функцию removeChar(str), которая возвращает строку, очищенную от всех не буквенно-цифровых символов.
  */
-
+// Мой вариант:
 const removeChar = (str) => {
   const numbers = "1234567890";
   const letters = "qwertyuiopasdfghjkLzxcvbnm";
   newStr = "";
   for (let i = 0; i < str.length; i++) {
     for (let j = 0; j < numbers.length; j++) {
-      if (str[i].toLowerCase() === numbers[j].toLocaleLowerCase()) {
+      if (str[i].toLowerCase() === numbers[j].toLowerCase()) {
         newStr += str[i];
       }
     }
     for (let p = 0; p < letters.length; p++) {
-      if (str[i].toLowerCase() === letters[p].toLocaleLowerCase()) {
+      if (str[i].toLowerCase() === letters[p].toLowerCase()) {
         newStr += str[i];
       }
     }
   }
   return newStr;
 };
-console.log(
-  "7)" + removeChar("asdfs sadfHHGHJFGHGCasdf /@#$$%%^^&&()  1244567")
-);
+console.log("7)" + removeChar("asdfs sadfHHGHJFGHGCasdf /@#$$%%^^&&()  1244567"));
+
+// Вариант от Алексея:
+
+
+// Через регулярку:
+const moveChar = (str) => {
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    if (/[a-zA-Z]|[а-яА-Я]|[0-9]|\s/.test(str[i])) {
+      result += str[i];
+    }
+  }
+  return result;
+}
+console.log(moveChar("asdfs sadfHHGHJFGHGCasdf /@#$$%%^^&&()  1244567"));
+
+
+
 
 /* 8) Напишите функцию zeros(num, len), которая дополняет нулями до указаной длины числовое значение с дополнительным знаком «+» или «-» в зависимости от передаваемого аргумента.
  */
@@ -152,7 +168,7 @@ console.log("11)", initCap(" PRiVet LeX  how ARE you  "));
 const initSnake = (str) => {
   let newStr = "";
   for (let i = 0; i < str.length; i++) {
-    if (str[i] === str[i].toUpperCase()) {
+    if (str[i] === str[i].toUpperCase() && i!== 0) {
       newStr += "_" + str[i].toLowerCase();
     } else {
         newStr += str[i].toLowerCase();
@@ -212,3 +228,53 @@ const insert = (str, substr, pos = 0) => {
   return (str.slice(0, pos) + substr + str.slice(pos, str.length))
 }
 console.log("17)", insert("1234567890", "abc", 5));
+
+/* 18) Напишите функцию limitStr(str, n, symb), которая обрезает строку, если она длиннее указанного количества символов n. Усеченная строка должна заканчиваться троеточием «...» (если не задан параметр symb) или заданным символом symb. */
+
+const limitStr = (str, n, symb = "...") => {
+  let newStr = "";
+  if (str.length > n) {
+    for (let i = 0; i < n; i++) {
+      newStr += str[i]
+    }
+    newStr += symb;
+  } else {
+    newStr = str;
+  }
+  return newStr;
+}
+console.log(limitStr("Transf", 6, "ooo"));
+
+/* 19) Напишите функцию count(str, stringsearch), которая возвращает количество символов stringsearch в строке str. */
+
+const count = (str, stringsearch) => {
+  let count =0;
+  for (let i = 0; i < str.length; i++) {
+    if (stringsearch === str[i]) {
+      count += 1;
+    }
+  }
+  return count;
+}
+console.log(count("1122334115566771", "2"));
+
+/* 20) Напишите функцию strip(str), которая удаляет все лишние пробелы из строки str. */
+
+const strip = (str) => {
+  let newStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === " " && str[i+1] === " ") {
+      continue
+    }else {
+      newStr += str[i];
+  }
+}
+return newStr.trim();
+}
+console.log(strip("         Privet         Lex !              "));
+
+/* 21) Напишите функцию cutString(str, n), которая удаляет лишние слова из строки str, оставив в ней n слов.*/
+
+
+
+/* 22) Напишите функцию findWord(word, str), которая проверяет, существует ли в строке str слова word. */
