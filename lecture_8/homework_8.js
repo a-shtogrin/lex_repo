@@ -33,3 +33,21 @@ const sameValue = (arr1, arr2) => {
   }
 };
 sameValue([1, 2, 0, 9, 8, 7, 6, 5, 4, 3, 19, 1], [2, 4, 0]);
+
+/* 1. Используя метод map() напишите код, который получает из массива строк новый массив, содержащий их длины.
+ */
+
+const stringLengthArr = (arr) => {
+  let newArr = arr.map((e) => e.length);
+  return newArr;
+};
+console.log("1.", stringLengthArr(["qwerty", "qwer", "asdffgh"]));
+
+// 2. Имеется массив простых чисел: numbers = [2, 3, 5, 7, 11, 13, 17, 19]. Использую метод reduce() напишите функцию currentSums(numbers), которая возвращает новый массив из такого же числа элементов, в котором на каждой позиции будет находиться сумма элементов массива numbers до этой позиции включительно.
+
+const currentSum = (numbers) => {
+  let newArr = []
+  numbers.reduce((accum, current) => newArr.push(accum + current));
+  return newArr
+}
+console.log("2.", currentSum([2, 3, 5, 7, 11, 13, 17, 19]));
