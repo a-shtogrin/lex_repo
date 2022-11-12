@@ -45,12 +45,22 @@ console.log("1.", stringLengthArr(["qwerty", "qwer", "asdffgh"]));
 
 // 2. Имеется массив простых чисел: numbers = [2, 3, 5, 7, 11, 13, 17, 19]. Использую метод reduce() напишите функцию currentSums(numbers), которая возвращает новый массив из такого же числа элементов, в котором на каждой позиции будет находиться сумма элементов массива numbers до этой позиции включительно.
 
-const currentSum = (numbers) => {
-  let newArr = [];
-  numbers.reduce((accum, current) => newArr.push(accum + current));
-  return newArr;
+// const currentSum = (numbers) => {
+//   let newArr = [];
+//   numbers.reduce((accum, current) => newArr.push(accum + current));
+//   return newArr;
+// };
+// console.log("2.", currentSum([2, 3, 5, 7, 11, 13, 17, 19]));
+
+const numbers = [2, 3, 5, 7, 11, 13, 17, 19];
+
+const currentSums = (numbers) => {
+  let result = [];
+  numbers.reduce((pre, cur, ind) => (result[ind] = pre + cur), 0);
+  return result;
 };
-console.log("2.", currentSum([2, 3, 5, 7, 11, 13, 17, 19]));
+
+console.log(currentSums("2.", numbers));
 
 // 3. Напишите код, который получает из массива чисел новый массив, содержащий пары чисел, которые в сумме должны быть равны семи: (0:7), (1:6) и т.д.
 
@@ -71,18 +81,33 @@ console.log("4.", arrLetter);
 
 // 5. Напишите код, создащий массив, который будет состоять из строк, состоящих из предыдущего, текущего и следующего символа строки str.
 
-const myStr = "privet Lex!";
-const myStrArr = []
-console.log();
-for (const i in myStr) {
-  if (myStr[i] !== 0 && myStr[i] !== myStr[myStr.length-1]) {
-    myStrArr.push(myStr[i-1], myStr[i], myStr[i+1])
-  } else {
+const str0 = "JavaString";
+const strSymbols = (str0) => {
+  const result = [];
+  for (let i = 0; i < str0.length; i += 1) {
+    if (i === 0) {
+      result.push(str0.slice(0, 2));
+    } else if (i === str0.length - 1) {
+      result.push(str0.slice(-2));
+    } else {
+      result.push(str0.slice(i - 1, i + 2));
+    }
   }
-}
-console.log("5.", myStrArr);
+  return result;
+};
+console.log("5.", strSymbols(str0));
 
+// Другое решение:
 
+const massThreeLet = (str0) => {
+  let arr = [];
+  for (let i = 0; i < str0.length; i++) {
+    arr.push(str0.substring(i - 1, i + 2));
+  }
+  return arr;
+};
+
+console.log("5.", massThreeLet(str0));
 
 // 6.Напишите код, преобразующий массив цифр, которые располагаются неупорядоченно, в массив цифр расположенных по убыванию их значений.
 let arrNumber = [1, 2, 3, 9, -7, 88, 7, 0, 4];
@@ -101,31 +126,44 @@ console.log(
   arr1.concat(arr2, arr3).sort((a, b) => b - a)
 );
 
+// Другое решение:
+
+const sortArr = (arr1, arr2, arr3) =>
+  [...arr1, ...arr2, ...arr3]
+    .sort((a, b) => b - a)
+    .join(" ")
+    .split();
+console.log("7.", sortArr(arr1, arr2, arr3));
+
 // 8.Дан двухмерный массив с числами, например [[1, 2, 3], [4, 5], [6]]. Найдите сумму элементов этого массива. Массив, конечно же, может быть произвольным.
 
 const twoArr = [[1, 10, 3], [4, 5], [6]];
 
-console.log("8", twoArr.flat().reduce((sum, el) => sum + el));
+console.log(
+  "8",
+  twoArr.flat().reduce((sum, el) => sum + el)
+);
 
 // 9.Дан массив с числами. Не используя метода reverse переверните его элементы в обратном порядке.
 
-const myArr = [1,2,3,4,5,6,7,8,9];
-const myReturnArr =[]
+const myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const myReturnArr = [];
 myArr.forEach((e) => myReturnArr.unshift(e));
 console.log("9.", myReturnArr);
+console.log(myArr);
 
 // 10.Дан массив с числами. Узнайте сколько элементов с начала массива надо сложить, чтобы в сумме получилось больше 10-ти.
 
-const arrTen = [1,1,5,5,3,4,8,9];
+const arrTen = [1, 1, 9, 6, 4, 2, 4, 5, 6, 7];
 let count = 0;
 let sum = 0;
 for (const i of arrTen) {
-  if (sum<=10) {
+  if (sum <= 10) {
     count += 1;
     sum += i;
   } else {
     console.log("10.", count);
-    break
+    break;
   }
 }
 
@@ -137,6 +175,5 @@ const arrayFill = (el, number) => {
     sameElArr.push(el);
   }
   return sameElArr;
-}
-console.log(arrayFill("privet!", 5));
-
+};
+console.log("11.", arrayFill("privet!", 5));
