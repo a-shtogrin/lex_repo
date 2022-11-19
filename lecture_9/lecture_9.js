@@ -106,3 +106,42 @@ const setNameCity2 = city.setValue.bind(city2)
 setNameCity2("name", "Bor")
 setNameCity2("country", "Russia")
 console.log(city2);
+
+// --------------------------------------------------Замыкание----------------------------------------------
+
+// const cubeValue = (a) => {
+//     // const a = 10;
+
+//     return (b, c) => {
+//         return a * b * c;
+//     }
+// }
+// const first = cubeValue(10);
+// const second = cubeValue(5)
+
+// console.log(first(10, 10));
+// console.log(second(5, 10));
+
+
+// ----------------------------коррирование---------------------------------------------------------
+
+
+const cubeValue2 = (a,b,c) => a*b*c;
+
+console.log(cubeValue2(1,3,3));
+
+const cubeCaryValue = (a) => {
+    return (b) => {
+        return (c) => {
+            return a*b*c;
+        }
+    }
+}
+
+console.log(cubeCaryValue(1)(3)(3));
+
+const twoArgs = cubeCaryValue(1)(3);
+
+console.log(twoArgs(3));
+console.log(twoArgs(4));
+console.log(twoArgs(5));
