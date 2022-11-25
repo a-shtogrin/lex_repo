@@ -74,3 +74,25 @@ const firstWorker = new Worker("Alex", "Ivanov", 250, 21);
 console.log(firstWorker);
 console.log(firstWorker.getFullName());
 console.log(firstWorker.getSalary());
+
+/* Реализуйте класс MyString, который будет иметь следующие методы: метод reverse(), который параметром принимает строку, а возвращает ее в перевернутом виде, метод ucFirst(), который параметром принимает строку, а возвращает эту же строку, сделав ее первую букву заглавной и метод ucWords, который принимает строку и делает заглавной первую букву каждого слова этой строки.
+ */
+
+class MyString {
+  constructor(string) {
+    this.string = string;
+  }
+
+  reverse() {
+    return this.string.split("").reverse().join("")
+  }
+  ucFirst() {
+    const newStr = this.string.split("")[0];
+    return newStr
+  }
+}
+
+const myObj = new MyString ("privet lex ha ha")
+console.log((myObj));
+console.log((myObj.reverse()));
+console.log((myObj.ucFirst()));
