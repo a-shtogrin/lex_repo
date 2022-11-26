@@ -48,6 +48,7 @@ const firstUser = new CreateUser("Alex", 25);
 const secondUser = new CreateUser("Ivan", 20);
 
 console.log(firstUser);
+console.log(typeof firstUser)
 console.log(secondUser);
 
 secondUser.sayHi();
