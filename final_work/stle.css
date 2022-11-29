@@ -1,0 +1,23 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    --main-bg-color: #969a97;
+    --bg-color: #527ac3;
+    --text-color: #130705;
+
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+  }
+
+
+
+.header,
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}

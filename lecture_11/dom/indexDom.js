@@ -1,12 +1,12 @@
-// const addButton = document.getElementById("add_button")
+const addButton = document.getElementById("add_button")
 
-// addButton.textContent = "Создать новый элемент"
+addButton.textContent = "Создать новый элемент"
 
-// console.log(addButton);
+console.log(addButton);
 
-// const buttonsCol = document.getElementsByTagName("button")
-// console.log(buttonsCol);
-// console.log(buttonsCol[0]);
+const buttonsCol = document.getElementsByTagName("button")
+console.log(buttonsCol);
+console.log(buttonsCol[0]);
 
 // const listItem = document.querySelector("li + .active")
 // const listItems = document.querySelectorAll(".list_item")
@@ -76,18 +76,18 @@
 // }
 // themeBtn.addEventListener("click", themeToggle);
 
-const content = document.querySelector(".content");
+// const content = document.querySelector(".content");
 
-content.addEventListener("click", (even) =>
-  console.log(even.target, even.currentTarget)
-);
+// content.addEventListener("click", (even) =>
+//   console.log(even.target, even.currentTarget)
+// );
 
-const list = document.querySelector(".list");
+// const list = document.querySelector(".list");
 
-list.addEventListener("click", () => console.log("list"));
+// list.addEventListener("click", () => console.log("list"));
 
-const listItems = document.querySelectorAll(".list_item");
+// const listItems = document.querySelectorAll(".list_item");
 
-for (let item of listItems) {
-  item.addEventListener("click", listItems);
-}
+// for (let item of listItems) {
+//   item.addEventListener("click", listItems);
+// }
