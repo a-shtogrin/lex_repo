@@ -9,6 +9,11 @@ body {
     color: var(--text-color);
   }
 
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
 
 
 .header,
@@ -20,4 +25,19 @@ body {
   height: 60px;
   background-color: var(--bg-color);
   color: var(--text-color);
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.addWork {
+ 
+  height: 55px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

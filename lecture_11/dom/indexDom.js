@@ -1,12 +1,12 @@
-const addButton = document.getElementById("add_button")
+// const addButton = document.getElementById("add_button")
 
-addButton.textContent = "Создать новый элемент"
+// addButton.textContent = "Создать новый элемент"
 
-console.log(addButton);
+// console.log(addButton);
 
-const buttonsCol = document.getElementsByTagName("button")
-console.log(buttonsCol);
-console.log(buttonsCol[0]);
+// const buttonsCol = document.getElementsByTagName("button")
+// console.log(buttonsCol);
+// console.log(buttonsCol[0]);
 
 // const listItem = document.querySelector("li + .active")
 // const listItems = document.querySelectorAll(".list_item")
@@ -35,15 +35,15 @@ console.log(buttonsCol[0]);
 
 // новый элемент в списке
 
-// const newListItem = document.createElement("li")
+const newListItem = document.createElement("li")
 
-// newListItem.className = "list_item"
-// newListItem.textContent = "New Element"
+newListItem.className = "list_item"
+newListItem.textContent = "New Element"
 
-// console.log(newListItem);
+console.log(newListItem);
 
-// const list = document.querySelector("ul")
-// list.append(newListItem)
+const list = document.querySelector("ul")
+list.append(newListItem)
 
 // const themBtn = document.getElementById("them_button");
 
