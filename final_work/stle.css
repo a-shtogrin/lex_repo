@@ -38,8 +38,11 @@ body {
 .addWork {
  
   height: 55px;
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+li {
+  margin: 10px;
 }

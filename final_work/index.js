@@ -1,49 +1,108 @@
+// Создание To Do List, необходимо средствами JS создать страницу на которой будут элементы:
+// header содержащий заголовок страницы
+// контейнер с контентом страницы
+// поле ввода input
+// список элементов (число элементов > 1)
+// кнопка добавления To Do
+
+// Используя наработки первого задания, добавить возможность добавления To Do в список с помощью поля ввода input и кнопки создания нового To Do.
 
 // создание header
 
-const headerMy = document.createElement('header')
-document.body.prepend (headerMy)
-headerMy.className = "header";
+const createHeader = (name) => {
+  const header = document.createElement("header");
+  header.className = `header`;
+  header.innerHTML = `<h3>${name}<h3>`;
+  document.body.prepend(header);
+};
 
-headerMy.innerHTML = "<h3>Список дел</h3>"; 
+createHeader("Список задач");
 
-console.log(headerMy);
+//------------------создание  контейнера
+const container = document.createElement("div");
+document.body.append(container);
+container.className = "container";
 
-//создание  контейнера
-const container = document.createElement('div')
-document.body.append (container)
-container.className = 'container'
+//------------------создание родительского объекта для поля ввода и кнопки
 
-console.log(container)
+// const createObj = (objName, id, parentObj) => {
+//   const obj = document.createElement(`${objName}`);
+//   obj.id = `${id}`;
+//   console.log(obj);
+//   parentObj.append(obj)
+// };
+// // createObj('div', 'container', 'body')
+// createObj('div', 'addWork', "container")
 
-//создание родительского объекта для поля ввода и кнопки
-const addWork = document.createElement('div')
-addWork.className = 'addWork'
+const addWork = document.createElement("div");
+addWork.className = "addWork";
+container.append(addWork);
 
+//----------------- добавление поля ввода и кнопки в родительский объект
 
-container.append(addWork)
+// addWork.innerHTML +='<input type="text" size="30" maxlength="15" placeholder="Введи дело" />'
 
-// добавление поля ввода и кнопки в родительский объект
-addWork.innerHTML +='<input type="text" size="15" maxlength="15" placeholder="Дело" />'
-addWork.innerHTML += `<input type="button" size="10" placeholder="Дело">`
+const createTextInput = (id, size, placeholder) => {
+  const inputField = document.createElement("input");
+  inputField.id = `${id}`
+  inputField.type = "text";
+  inputField.size = `${size}`;
+  inputField.placeholder = `${placeholder}`;
+  return inputField;
+};
 
+addWork.append(createTextInput("inputField", 30, "Новая задача"));
+
+// -----------добавление кнопки
+const createButton = (id, className, textContent) => {
+  const addButton = document.createElement("button");
+  addButton.id = `${id}`;
+  addButton.className = `${className}`;
+  addButton.textContent = `${textContent}`;
+  return addButton;
+};
+
+addWork.append(createButton("add_button", "btn", "Добавить задачу"));
 
 
 //создание списка и добаление его в контейнер
-const newList = document.createElement("ul")
-newList.className = "list"
-newList.textContent = "Список:"
-container.append(newList)
+// const createList=(type, className, textContent) => {
+// const newList = document.createElement(`${type}`);
+// newList.className = `${className}`;
+// newList.textContent = `${textContent}`
+// container.append(newList)
+// }
+// createList("ul", "list", "Список:");
+const list = document.createElement(`ul`);
+list.className = `list`;
+list.textContent = `Список:`;
+container.append(list);
 
-// создание элемента списка
-const newListItem = document.createElement("li")
-newListItem.className = "list_item"
-newListItem.textContent = "New Element"
+// // создание элемента списка
 
-console.log(newListItem);
+const addLi = (task) => {
+  const newListItem = document.createElement("li");
+  newListItem.className = "list_item";
+  newListItem.textContent = `${task}`;
+  newListItem.innerHTML +=` <input type="checkbox" id = ${task}>`
+  list.append(newListItem);
+};
 
-// поиск списка и добаление элемента в список
-const list = document.querySelector("ul")
-list.append(newListItem)
+
+
+const addButton = document.getElementById("add_button");
+const inputField = document.getElementById("inputField")
+const chbox = document.getElementById('qwer')
+
+
+addButton.addEventListener("click", () => {
+    if (inputField.value === ""){
+        alert("Введи задачу!!")
+    } else {
+        addLi(inputField.value)
+    }
+});
+
+
 
 

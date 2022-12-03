@@ -60,21 +60,22 @@ list.append(newListItem)
 //    second();
 // }
 
-// const themeBtn = document.getElementById("theme_button");
+const themeBtn = document.getElementById("theme_button");
 
-// const themeToggle = function(event) {
-//     console.log(event);  //event - объект события, в нем много свойств.
-//     const body = document.body;
+const themeToggle = function(event) {
+    console.log(event);  //event - объект события, в нем много свойств.
+    const body = document.body;
 
-//     body.classList.toggle("light_theme");
-//     if (body.classList.contains("light_theme")) {
-//         this.textContent = "Темная тема"  //themeBt
-//     } else {
-//         this.textContent = "Светлая тема" //themeBt
-//     }
-    
-// }
-// themeBtn.addEventListener("click", themeToggle);
+    body.classList.toggle("light_theme");
+    if (body.classList.contains("light_theme")) {
+        this.textContent = "Темная тема"  //themeBt
+    } else {
+        this.textContent = "Светлая тема" //themeBt
+    }
+}
+themeBtn.addEventListener("click", themeToggle);
+
+//-------------всплытие--------------
 
 // const content = document.querySelector(".content");
 
