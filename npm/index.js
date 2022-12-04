@@ -1,5 +1,5 @@
 // const scriptModule = require("./script")
-// import {sayHello as sayHi, user} from "./script.js"
+import {sayHello as sayHi, user} from "./script.js"
 
 // import * as ScriptModule from "./script.js"
 // import lodash from "lodash"
@@ -15,8 +15,8 @@ const result = await import("./script.js")
 
 // console.log("Hello word!");
 
-// // sayHi()
-// // console.log(user);
+sayHi()
+console.log(user);
 
 // ScriptModule.sayHi()
 
