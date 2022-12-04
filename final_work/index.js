@@ -7,6 +7,9 @@
 
 // Используя наработки первого задания, добавить возможность добавления To Do в список с помощью поля ввода input и кнопки создания нового To Do.
 
+
+
+
 // создание header
 
 const createHeader = (name) => {
@@ -16,12 +19,24 @@ const createHeader = (name) => {
   document.body.prepend(header);
 };
 
+// создание footer
+
+const createFooter = (name) => {
+  const footer = document.createElement("footer");
+  footer.className = `header`;
+  footer.innerHTML = `<h3>${name}<h3>`;
+  document.body.append(footer);
+};
+
+
 createHeader("Список задач");
 
 //------------------создание  контейнера
 const container = document.createElement("div");
 document.body.append(container);
 container.className = "container";
+
+createFooter("Сделал дело, гуляй смело!");
 
 //------------------создание родительского объекта для поля ввода и кнопки
 
@@ -81,11 +96,16 @@ container.append(list);
 // // создание элемента списка
 
 const addLi = (task) => {
+  const newTask = document.createElement("div");
+  newTask.className = "newTask";
+  const chbox = document.createElement("input");
+  chbox.type = "checkbox";
   const newListItem = document.createElement("li");
   newListItem.className = "list_item";
-  newListItem.textContent = `${task}`;
-  newListItem.innerHTML +=` <input type="checkbox" id = ${task}>`
-  list.append(newListItem);
+  newListItem.textContent += `${task}`;
+  list.append(newTask);
+  newTask.append(chbox);
+  newTask.append(newListItem);
 };
 
 

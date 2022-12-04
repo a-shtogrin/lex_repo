@@ -7,6 +7,11 @@ body {
 
     background-color: var(--main-bg-color);
     color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
   }
 
   * {
@@ -29,20 +34,41 @@ body {
 
 
 .container {
+  width: 1140px;
+  margin: 0 auto;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
+  
+}
+
+.addWork {
+  height: 50px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.addWork {
- 
-  height: 55px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.btn {
+margin: 10px;
+cursor: pointer;
+}
+
+ul {
+  list-style: none;
 }
 
 li {
-  margin: 10px;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
 }
+
+.newTask {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 500px;
+  height: 50px;
+}
+
