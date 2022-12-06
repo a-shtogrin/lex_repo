@@ -24,8 +24,9 @@ const createHeader = (title) => {
   
   
   //------------------создание объекта с классом
-  const createDiv = (className) => {
+  const createDiv = (id, className) => {
     const div = document.createElement("div");
+    div.id = `${id}`;
     div.className = `${className}`;
     return div;
   }

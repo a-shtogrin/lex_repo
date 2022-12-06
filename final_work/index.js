@@ -3,21 +3,23 @@
 import {createHeader, createFooter, createDiv, createTextInput, createButton} from './function.js'
 
 
-document.body.append(createDiv("wrap"));  //создание родительского объекта хедера и контента, чтобы футер был всегда внизу
-const wrap = document.getElementsByClassName("wrap")[0];
+document.body.append(createDiv("wrap", "wrap"));  //создание родительского объекта хедера и контента, чтобы футер был всегда внизу
 
+const [wrap] = document.getElementsByClassName("wrap");  // это деструктуризация массива. с помощью getElementsByClassName("wrap") возвращается массив элементов с классом wrap (вернет массив только с одним элементом)
+console.log(wrap);
 
 wrap.prepend(createHeader("Список дел")); //создание хедера
-wrap.append(createDiv("container"));  // создание контейнера
+wrap.append(createDiv("container", "wrap-container"));  // создание контейнера
 document.body.append(createFooter("Сделал дело, гуляй смело!")); //создание футера
 
-const container = document.getElementsByClassName("container")[0];
+const container = document.getElementsByClassName("wrap-container")[0]; //можно присвоить id контейнеру и использовать getElementById или выполнить деструктуризацию как с wrap
 
-container.append(createDiv("addWork")); //создание родительского объекта для поля ввода и кнопки
+container.append(createDiv("addWork", "wrap-container-add")); //создание родительского объекта для поля ввода и кнопки
 
-const addWork = document.getElementsByClassName("addWork")[0];
 
-addWork.append(createTextInput("inputField", 30, "Новая задача")); //создание поля ввода
+const addWork = document.getElementById("addWork");
+
+addWork.append(createTextInput("input_field", 30, "Новая задача")); //создание поля ввода
 
 addWork.append(createButton("add_button", "btn", "Добавить задачу")); //создание кнопки
 
@@ -30,7 +32,7 @@ container.append(list);
 
 const addLi = (task) => {
   const newTask = document.createElement("div");
-  newTask.className = "newTask";
+  newTask.className = "new_task";
   const chbox = document.createElement("input");
   chbox.type = "checkbox";
   const newListItem = document.createElement("li");
@@ -44,7 +46,7 @@ const addLi = (task) => {
 
 
 const addButton = document.getElementById("add_button");
-const inputField = document.getElementById("inputField")
+const inputField = document.getElementById("input_field")
 
 
 //обработчик
@@ -54,6 +56,7 @@ addButton.addEventListener("click", () => {
     } else {
         addLi(inputField.value)
     }
+    inputField.value = ""
 });
 
 
